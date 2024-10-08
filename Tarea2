@@ -1,0 +1,15 @@
+import numpy as np
+from scipy import stats
+
+numeros_aleatorios = np.random.uniform(0, 1, 100)
+
+ks_statistic, p_value = stats.kstest(numeros_aleatorios, 'uniform')
+
+print(f'Estadístico de Kolmogorov-Smirnov: {ks_statistic}')
+print(f'Valor p: {p_value}')
+
+alpha = 0.05
+if p_value > alpha:
+    print("Los números tienen una distribución uniforme.")
+else:
+    print("Los números no tienen una distribución uniforme.")
